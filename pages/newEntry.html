@@ -53,15 +53,25 @@
         </div>
     </div>
 
-    <div class="container-fluid d-flex justify-content-center" id="writingEntry_div">
+    <div class="container-fluid d-flex justify-content-center d-none" id="writingEntry_div">
         <div class="row w-75 bg-rose justify-content-center  rounded shadow m-5">
-            <div class="col-10 text-center text-light m-0" id="writingEntryTitle">
-               
+            <div class="col-10 text-center text-light m-0" id="writingEntryTitle_div">
+               <h1 class="bg-light w-100 m-0">title</h1>
           
             </div>
             <div class="col-10 text-center text-light m-0">
                
-                <textarea id="" rows="10" class="w-100"></textarea>     
+                <textarea id="" rows="10" class="w-100 m-0"></textarea>     
+            </div>
+            <div class="col-10 text-center text-light m-0">
+               <div class="w-25">
+                   <input type="file" class="p-4"
+                   placeholder="Add photo"
+                   multiple
+                   id="addPhotoInput" 
+                   accept="image/png, image/jpeg">
+
+               </div>
             </div>
         </div>
     </div>

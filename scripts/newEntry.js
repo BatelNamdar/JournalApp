@@ -1,13 +1,13 @@
 const feelings = [
-    "Happy",
-    "Sad",
-    "Angry",
-    "Excited",
-    "Anxious",
-    "Frustrated",
-    "Nervous",
-    "Content",
-    "Grateful",
+  "Happy",
+  "Sad",
+  "Angry",
+  "Excited",
+  "Anxious",
+  "Frustrated",
+  "Nervous",
+  "Content",
+  "Grateful",
   "Worried",
   "Relaxed",
   "Confused",
@@ -18,7 +18,7 @@ const feelings = [
   "Overwhelmed",
   "Guilty",
   "Bored",
-  "Curious"
+  "Curious",
 ];
 
 const entrySuggestions = [
@@ -67,79 +67,76 @@ const entrySuggestions = [
   "Write about a personal strength or talent that you are proud of and how it enhances your life.",
   "What are your favorite ways to cultivate inner peace and serenity?",
   "Describe a time when you made a difficult ethical decision and the reasoning behind your choice.",
-  "Reflect on a time when you had to confront a fear and the lessons you learned from facing it."
+  "Reflect on a time when you had to confront a fear and the lessons you learned from facing it.",
 ];
 
-const feelingsContinue_btn =document.getElementById("feelingsContinue_btn");
+const feelingsContinue_btn = document.getElementById("feelingsContinue_btn");
 const addTitle_div = document.getElementById("addTitle_div");
 const feelings_div = document.getElementById("feelings_div");
 const MakeYourOwn_btn = document.getElementById("MakeYourOwn_btn");
-const ownEntryTitleInput = document.getElementById("ownEntryTitleInput")
+const ownEntryTitleInput = document.getElementById("ownEntryTitleInput");
 const ownTitleWrapper = document.getElementById("ownTitleWrapper");
-const suggestionWrapper = document.getElementById("suggestionWrapper") 
-const writingEntryTitle = document.getElementById("writingEntryTitle");
+const suggestionWrapper = document.getElementById("suggestionWrapper");
+const writingEntryTitle_div = document.getElementById("writingEntryTitle_div");
+const howAreYouFeeling_div = document.getElementById("howAreYouFeeling_div");
+const writingEntry_div = document.getElementById("writingEntry_div");
 
-feelingsContinue_btn.addEventListener("click", feelingsContinue_btn_Handle)
-MakeYourOwn_btn.addEventListener("click", makeOwnTitleOpen)
+feelingsContinue_btn.addEventListener("click", feelingsContinue_btn_Handle);
+MakeYourOwn_btn.addEventListener("click", makeOwnTitleOpen);
 
-createFeelingsButtons()
+createFeelingsButtons();
 
-function createFeelingsButtons(){
-  let html = '';
-  for(i=0;i<feelings.length;i++){
-    html += ` <button onclick="changeSelected(${i})" id="feeling-Button-${i}" class="btn m-1 feelingRemove">${feelings[i]}</button>`
+function createFeelingsButtons() {
+  let html = "";
+  for (i = 0; i < feelings.length; i++) {
+    html += ` <button onclick="changeSelected(${i})" id="feeling-Button-${i}" class="btn m-1 feelingRemove">${feelings[i]}</button>`;
   }
-  feelings_div.innerHTML = html
+  feelings_div.innerHTML = html;
 }
 
-function feelingsContinue_btn_Handle(){
+function feelingsContinue_btn_Handle() {
   let suggestion = entrySuggestions[getRandomInt(0, entrySuggestions.length)];
-      
-  suggestionWrapper.innerHTML=`
-    
+
+  suggestionWrapper.innerHTML = `
   <h1>Lets add a title</h1>
-  <h5>Were here to suggest you a journal entry question, as they are a great starting point:</h5>
-  <p class="fs-3 bg-pale rounded p-2" >
+  <h5>Were here to suggest you a journal entry question, as they are a great starting point. todays suggestion:</h5>
+  <p class="fs-3">
       ${suggestion}
   </p>
-  <button class="btn bg-UV text-light" onclick="showTitleInWritingDiv(${suggestion})" >continue with suggestion</button>
+  <button class="btn bg-UV text-light" onclick="continueToWritingDiv('${suggestion}')">continue with suggestion</button>
    <br>
    <h5>or</h5>
-  `
+  `;
   addTitle_div.classList.remove("d-none");
-
 }
 
-function changeSelected(i){
-  let buttonToChange = document.getElementById("feeling-Button-" + i)
+function changeSelected(i) {
+  let buttonToChange = document.getElementById("feeling-Button-" + i);
 
-  if(buttonToChange.classList.contains("feelingRemove")){
-    buttonToChange.classList.remove("feelingRemove")
-    buttonToChange.classList.add("feelingAdd")
-    buttonToChange.classList.add("shadow")
-
-    } else if(buttonToChange.classList.contains("feelingAdd")) {
-      
-      buttonToChange.classList.remove("feelingAdd")
-      buttonToChange.classList.remove("shadow")
-      buttonToChange.classList.add("feelingRemove")
-    }
-}
-
-function getCheckedButtons(){
-  let selectedFeelings = []
-  for(i=0;i<feelings.length;i++){
-    let check = document.getElementById("feeling-Button-" + i)
-    if(check.classList.contains("feelingAdd")){
-      selectedFeelings.push(feelings[i])
-    }
-    
+  if (buttonToChange.classList.contains("feelingRemove")) {
+    buttonToChange.classList.remove("feelingRemove");
+    buttonToChange.classList.add("feelingAdd");
+    buttonToChange.classList.add("shadow");
+  } else if (buttonToChange.classList.contains("feelingAdd")) {
+    buttonToChange.classList.remove("feelingAdd");
+    buttonToChange.classList.remove("shadow");
+    buttonToChange.classList.add("feelingRemove");
   }
-  return selectedFeelings
 }
 
-function makeOwnTitleOpen(){
-  ownTitleWrapper.classList.remove("d-none")
+function getCheckedButtons() {
+  let selectedFeelings = [];
+  for (i = 0; i < feelings.length; i++) {
+    let check = document.getElementById("feeling-Button-" + i);
+    if (check.classList.contains("feelingAdd")) {
+      selectedFeelings.push(feelings[i]);
+    }
+  }
+  return selectedFeelings;
+}
+
+function makeOwnTitleOpen() {
+  ownTitleWrapper.classList.remove("d-none");
 }
 
 function getRandomInt(min, max) {
@@ -148,8 +145,17 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
 }
 
-function showTitleInWritingDiv(entryTitle){
-
-  writingEntryTitle.innerHTML = `<h1 class="bg-light text-dark w-100 m-0 text-center">${entryTitle}</h1> ` ;
+function keepOnlyWritingDiv() {
+  addTitle_div.classList.add("d-none");
+  howAreYouFeeling_div.classList.add("d-none");
+  writingEntry_div.classList.remove("d-none");
 }
 
+function showTitleInWritingDiv(title) {
+  writingEntryTitle_div.innerHTML = ` <h2 class="bg-light w-100 m-0 text-dark mt-3">${title}</h2>`;
+}
+
+function continueToWritingDiv(title) {
+  keepOnlyWritingDiv();
+  showTitleInWritingDiv(title);
+}
