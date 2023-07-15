@@ -1,0 +1,58 @@
+.bg-space{
+
+    background-color: rgb(34, 34, 59)!important;
+
+}
+
+.color-space{
+    color: rgb(34, 34, 59)!important;
+}
+
+.bg-UV{
+
+    background-color: rgb(74, 78, 105)!important;
+
+}
+
+.color-UV{
+    color: rgb(74, 78, 105)!important;
+}
+
+.bg-rose{
+
+    background-color: rgb(154, 140, 152)!important;
+
+}
+
+.color-rose{
+    color: rgb(154, 140, 152)!important;
+}
+
+.bg-pale{
+
+    background-color: rgb(201, 173, 167)!important;
+
+}
+
+.color-pale{
+    color: rgb(201, 173, 167)!important;
+}
+
+.bg-isa{
+
+    background-color: rgb(242, 233, 228)!important;
+
+}
+
+.color-isa{
+    color: rgb(242, 233, 228)!important;
+}
+
+.feelingRemove{
+    background-color: rgb(242, 233, 228)!important;
+}
+
+.feelingAdd{
+    background-color: rgb(201, 173, 167)!important;
+   
+  }

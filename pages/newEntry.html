@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../style.css">
+    <script src="../scripts/newEntry.js" defer ></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body class="bg-space">
+
+    <div class="container-fluid d-flex justify-content-center">
+        <div class="row w-75 bg-rose justify-content-center  rounded shadow m-5" id="howAreYouFeeling_div">
+            <div class="col-10 text-center text-light">
+                <h1>how are you feeling today?</h1>
+                <h5>choose from the following:</h5>
+                <div id="feelings_div">
+                 
+                </div>
+                <a href="#addTitle_div">
+
+                    <button id="feelingsContinue_btn" class="bg-UV btn m-2 text-light">continue</button>
+                </a>
+           
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid d-flex justify-content-center d-none" id="addTitle_div">
+        <div class="row w-75 bg-rose justify-content-center  rounded shadow m-5">
+            <div class="col-10 text-center text-light">
+                <div id="suggestionWrapper">
+
+                    <h1>Lets add a title</h1>
+                    <h5>Were here to suggest you a journal entry question, as they are a great starting point. todays suggestion:</h5>
+                    <p class="fs-3">
+                        suggestion
+                    </p>
+                    <button class="btn bg-UV text-light">continue with suggestion</button>
+                     <br>
+                     <h5>or</h5>
+                </div>
+                 <button class="btn text-decoration-underline" id="MakeYourOwn_btn">make your own</button>
+                </div>
+                <div class=" text-center my-1 d-none"  id="ownTitleWrapper">
+                    <button class="btn text-decoration-underline ">continue</button>
+                    <input type="text" id="ownEntryTitleInput">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid d-flex justify-content-center" id="writingEntry_div">
+        <div class="row w-75 bg-rose justify-content-center  rounded shadow m-5">
+            <div class="col-10 text-center text-light m-0" id="writingEntryTitle">
+               
+          
+            </div>
+            <div class="col-10 text-center text-light m-0">
+               
+                <textarea id="" rows="10" class="w-100"></textarea>     
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
