@@ -70,6 +70,9 @@ const entrySuggestions = [
   "Reflect on a time when you had to confront a fear and the lessons you learned from facing it.",
 ];
 
+let entriesArray = [];
+
+
 let idCounter = 0;
 
 const feelingsContinue_btn = document.getElementById("feelingsContinue_btn");
@@ -125,6 +128,7 @@ function feelingsContinue_btn_Handle() {
    <h5>or</h5>
   `;
   addTitle_div.classList.remove("d-none");
+  feelings_div.classList.add("d-none")
 }
 
 function changeSelected(i) {
@@ -190,18 +194,16 @@ class JournalEntry {
   }
 }
 
-function newEntrySubmit(toAdd){
+function newEntrySubmit(){
   let entry = new JournalEntry
-  if(localStorage.getItem("entries")){
-    entriesArray = JSON.parse(localStorage.getItem("entries"))
-    entriesArray.push(entry)
-    localStorage.setItem("entries" , JSON.stringify(entriesArray))
-   console.log(JSON.stringify(localStorage.getItem("entries")))
-  } else{
-    entriesArray.push(entry);
-    localStorage.setItem("entries" , JSON.stringify(entriesArray))
-    console.log(JSON.stringify(localStorage.getItem("entries")))
-
-  }
+ if(localStorage.getItem("entries")){
+  entriesArray = JSON.parse(localStorage.getItem("entries"))
+  entriesArray.push(entry)
+  localStorage.setItem("entries",JSON.stringify(entriesArray))
+ } else {
+  entriesArray[0] = entry
+  localStorage.setItem("entries" ,JSON.stringify(entriesArray) )
+}
+console.log(localStorage.getItem("entries"));
 }
 
