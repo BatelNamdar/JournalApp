@@ -70,6 +70,8 @@ const entrySuggestions = [
   "Reflect on a time when you had to confront a fear and the lessons you learned from facing it.",
 ];
 
+let idCounter = 0;
+
 const feelingsContinue_btn = document.getElementById("feelingsContinue_btn");
 const addTitle_div = document.getElementById("addTitle_div");
 const feelings_div = document.getElementById("feelings_div");
@@ -80,9 +82,24 @@ const suggestionWrapper = document.getElementById("suggestionWrapper");
 const writingEntryTitle_div = document.getElementById("writingEntryTitle_div");
 const howAreYouFeeling_div = document.getElementById("howAreYouFeeling_div");
 const writingEntry_div = document.getElementById("writingEntry_div");
+const continueWithOwn_btn = document.getElementById("continueWithOwn_btn")
+const entry_textArea = document.getElementById("entry_textArea");
+const addPhotoInput = document.getElementById("addPhotoInput");
+const sumbitEntry_btn = document.getElementById("sumbitEntry_btn");
+
 
 feelingsContinue_btn.addEventListener("click", feelingsContinue_btn_Handle);
 MakeYourOwn_btn.addEventListener("click", makeOwnTitleOpen);
+continueWithOwn_btn.addEventListener("click",(x) => 
+{
+  if (ownEntryTitleInput.value.length <2 ){
+    return alert("Entry title is too short, please try again.")
+  }
+  continueToWritingDiv(ownEntryTitleInput.value)
+})
+sumbitEntry_btn.addEventListener("click", newEntrySubmit)
+
+
 
 createFeelingsButtons();
 
@@ -152,10 +169,39 @@ function keepOnlyWritingDiv() {
 }
 
 function showTitleInWritingDiv(title) {
-  writingEntryTitle_div.innerHTML = ` <h2 class="bg-light w-100 m-0 text-dark mt-3">${title}</h2>`;
+  writingEntryTitle_div.innerText =`${title}`;
 }
 
 function continueToWritingDiv(title) {
   keepOnlyWritingDiv();
   showTitleInWritingDiv(title);
 }
+
+
+
+
+class JournalEntry {
+  constructor(title = writingEntryTitle_div.innerText, entry = entry_textArea.value, feelings = getCheckedButtons(),  ){
+    this.title = title;
+    this.entry = entry;
+    this.feelings = feelings;
+    this.id = idCounter++;
+    this.createdAt = new Date;
+  }
+}
+
+function newEntrySubmit(toAdd){
+  let entry = new JournalEntry
+  if(localStorage.getItem("entries")){
+    entriesArray = JSON.parse(localStorage.getItem("entries"))
+    entriesArray.push(entry)
+    localStorage.setItem("entries" , JSON.stringify(entriesArray))
+   console.log(JSON.stringify(localStorage.getItem("entries")))
+  } else{
+    entriesArray.push(entry);
+    localStorage.setItem("entries" , JSON.stringify(entriesArray))
+    console.log(JSON.stringify(localStorage.getItem("entries")))
+
+  }
+}
+

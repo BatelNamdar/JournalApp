@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" href="../style.css">
     <script src="../scripts/newEntry.js" defer ></script>
+    <script src="/scripts/pastEntries.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -46,7 +47,7 @@
                  <button class="btn text-decoration-underline" id="MakeYourOwn_btn">make your own</button>
                 </div>
                 <div class=" text-center my-1 d-none"  id="ownTitleWrapper">
-                    <button class="btn text-decoration-underline ">continue</button>
+                    <button class="btn text-decoration-underline" id="continueWithOwn_btn">continue</button>
                     <input type="text" id="ownEntryTitleInput">
                 </div>
             </div>
@@ -55,22 +56,20 @@
 
     <div class="container-fluid d-flex justify-content-center d-none" id="writingEntry_div">
         <div class="row w-75 bg-rose justify-content-center  rounded shadow m-5">
-            <div class="col-10 text-center text-light m-0" id="writingEntryTitle_div">
-               <h1 class="bg-light w-100 m-0">title</h1>
+            <div class="col-10 text-center text-light m-0" >
+               <h1 class="bg-light w-100 m-0 text-dark mt-3" id="writingEntryTitle_div">title</h1>
           
             </div>
             <div class="col-10 text-center text-light m-0">
                
-                <textarea id="" rows="10" class="w-100 m-0"></textarea>     
+                <textarea id="entry_textArea" rows="10" class="w-100 m-0"></textarea>     
             </div>
             <div class="col-10 text-center text-light m-0">
-               <div class="w-25">
-                   <input type="file" class="p-4"
-                   placeholder="Add photo"
-                   multiple
-                   id="addPhotoInput" 
-                   accept="image/png, image/jpeg">
+               <div class="text-center">
+                <a href="/pages/pastEntries.html">
 
+                    <button class="btn bg-isa shadow m-3" id="sumbitEntry_btn">submit</button>
+                </a>
                </div>
             </div>
         </div>
