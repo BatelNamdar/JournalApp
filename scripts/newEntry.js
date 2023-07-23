@@ -128,7 +128,7 @@ function feelingsContinue_btn_Handle() {
    <h5>or</h5>
   `;
   addTitle_div.classList.remove("d-none");
-  feelings_div.classList.add("d-none")
+  howAreYouFeeling_div.classList.add("d-none")
 }
 
 function changeSelected(i) {
