@@ -191,6 +191,7 @@ class JournalEntry {
     this.feelings = feelings;
     this.id = idCounter++;
     this.createdAt = new Date;
+    this.displayedDate = this.createdAt.toLocaleString()
   }
 }
 
