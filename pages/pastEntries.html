@@ -23,12 +23,38 @@
     />
   </head>
   <body class="bg-space">
+    <a href="../index.html">
+      <button class="btn px-3 bg-pale">back</button>
+    </a>
     <div class="container-fluid">
       <div class="row justify-content-center bg-UV m-4 rounded p-3">
-        <div class="col-6 text-center">
+        <div class="col-md-6 text-center mb-3">
           <a href="/pages/newEntry.html">
             <button class="btn bg-isa">Add new entry</button>
           </a>
+        </div>
+        <hr />
+        <div class="col-md-6 text-center mb-3">
+          <label class="text-light" for="searchInEntry_input"
+            >Open search :
+          </label>
+
+          <input
+            type="text"
+            class="d-inline"
+            id="searchInEntry_input"
+            class="w-75"
+          />
+          <button id="searchInEntry_btn" class="btn bg-isa w-25 d-inline">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+        <hr />
+        <div class="col-md-4 text-center">
+          <label class="text-light" for="feelingSelect"
+            >Search by feeling:</label
+          >
+          <select name="feelings" id="feelingSelect"></select>
         </div>
       </div>
     </div>

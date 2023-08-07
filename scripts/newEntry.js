@@ -73,7 +73,7 @@ const entrySuggestions = [
 let entriesArray = [];
 
 
-let idCounter = 0;
+let idCounter = 0
 
 const feelingsContinue_btn = document.getElementById("feelingsContinue_btn");
 const addTitle_div = document.getElementById("addTitle_div");
@@ -103,7 +103,6 @@ continueWithOwn_btn.addEventListener("click",(x) =>
 sumbitEntry_btn.addEventListener("click", newEntrySubmit)
 
 
-
 createFeelingsButtons();
 
 function createFeelingsButtons() {
@@ -128,7 +127,7 @@ function feelingsContinue_btn_Handle() {
    <h5>or</h5>
   `;
   addTitle_div.classList.remove("d-none");
-  feelings_div.classList.add("d-none")
+  howAreYouFeeling_div.classList.add("d-none")
 }
 
 function changeSelected(i) {
@@ -183,13 +182,12 @@ function continueToWritingDiv(title) {
 
 
 
-
 class JournalEntry {
   constructor(title = writingEntryTitle_div.innerText, entry = entry_textArea.value, feelings = getCheckedButtons(),  ){
     this.title = title;
     this.entry = entry;
     this.feelings = feelings;
-    this.id = idCounter++;
+    
     this.createdAt = new Date;
     this.displayedDate = this.createdAt.toLocaleString()
   }
