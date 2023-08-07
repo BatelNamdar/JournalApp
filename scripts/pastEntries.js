@@ -29,6 +29,7 @@ const feelingSelect = document.getElementById("feelingSelect");
 if (localStorage.getItem("entries")) {
   renderPastEntries(getEntriesArray());
 }
+renderPastEntries(getEntriesArray())
 
 createSelectFeelings();
 
@@ -116,3 +117,5 @@ function getFeelingsString(i) {
   }
   return stringToReturn + ".";
 }
+
+
